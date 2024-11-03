@@ -12,7 +12,7 @@ return {
         "typescript-language-server",
         "css-lsp",
         "vue-language-server",
-        "python-lsp-server",
+        "python",
       })
     end,
   },
