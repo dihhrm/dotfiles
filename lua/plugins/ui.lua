@@ -90,4 +90,21 @@ return {
       opts.config.header = vim.split(logo, "\n")
     end,
   },
+
+  -- Lazygit
+  {
+    "kdheepak/lazygit.nvim",
+    keys = {
+      {
+        ";c",
+        ":LazyGit<Return>",
+        silent = true,
+        noremap = true,
+      },
+    },
+    -- opt: for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
 }
