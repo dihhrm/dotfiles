@@ -115,4 +115,18 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
+
+  -- go mini icons
+  --
+  {
+    "echasnovski/mini.icons",
+    opts = {
+      file = {
+        [".go-version"] = { glyph = "", hl = "MiniIconsBlue" },
+      },
+      filetype = {
+        gotmpl = { glyph = "󰟓", hl = "MiniIconsGrey" },
+      },
+    },
+  },
 }

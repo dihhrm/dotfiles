@@ -5,6 +5,11 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "stylua",
         "gopls",
+        "goimports",
+        "gofumpt",
+        "gomodifytags",
+        "impl",
+        "delve",
         "selene",
         "luacheck",
         "shellcheck",
