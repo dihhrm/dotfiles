@@ -6,25 +6,25 @@ return {
 
     config = function()
       require("nvim-treesitter").install({
-          "lua",
-          "vim",
-          "tsx",
-          "vimdoc",
-          "javascript",
-          "typescript",
-          "css",
-          "gitignore",
-          "vue",
-          "python",
-          "ruby",
-          "go",
-          "gowork",
-          "gomod",
-          "gosum",
-          "sql",
-          "scss",
-          "http",
-          "json"
+        "lua",
+        "vim",
+        "tsx",
+        "vimdoc",
+        "javascript",
+        "typescript",
+        "css",
+        "gitignore",
+        "vue",
+        "python",
+        "ruby",
+        "go",
+        "gowork",
+        "gomod",
+        "gosum",
+        "sql",
+        "scss",
+        "http",
+        "json",
       })
 
       vim.api.nvim_create_autocmd("FileType", {
@@ -32,12 +32,13 @@ return {
           "javascript",
           "javascriptreact",
           "typescript",
-          "typescriptreact"
+          "typescriptreact",
+          "python",
         },
         callback = function()
           vim.treesitter.start()
-        end
+        end,
       })
-    end
-  }
+    end,
+  },
 }
