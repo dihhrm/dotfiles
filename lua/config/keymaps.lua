@@ -17,7 +17,7 @@ keymap.set("n", "<C-M>", "<C-i>", opts)
 -- Save file and quit
 keymap.set("n", "<Leader>w", ":update<Return>", opts)
 keymap.set("n", "<Leader>q", ":quit<Return>", opts)
-keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
+keymap.set("n", "<Leader>Q", ":q!<Return>", opts)
 -- Tabs
 keymap.set("n", "te", ":tabedit", opts)
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
@@ -41,7 +41,7 @@ keymap.set("n", "<C-S-k>", "<C-w>+")
 keymap.set("n", "<C-S-j>", "<C-w>-")
 
 -- Diagnostics
-keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
