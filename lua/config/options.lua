@@ -40,6 +40,10 @@ vim.opt.listchars = {
   extends = ">",
   precedes = "<",
 }
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldenable = true
 
 -- Undercurl
 vim.opt.spell = true

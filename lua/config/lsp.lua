@@ -40,4 +40,4 @@ vim.lsp.config("vtsls", vtsls_config)
 vim.lsp.config("vue_ls", vue_ls_config)
 
 -- Enable LSPs
-vim.lsp.enable({ "lua_ls", "vtsls", "vue_ls", "cssls", "tailwindcss", "eslint", "biome", "html", "pylsp" })
+vim.lsp.enable({ "copilot", "lua_ls", "vtsls", "vue_ls", "cssls", "tailwindcss", "eslint", "biome", "html", "pylsp" })
