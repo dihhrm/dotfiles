@@ -36,8 +36,28 @@ local vtsls_config = {
 
 local vue_ls_config = {}
 
+local caps = vim.lsp.protocol.make_client_capabilities()
+caps.textDocument.completion.completionItem.snippetSupport = true
+local emmet_config = {
+  filetypes = {
+    "css",
+    "eruby",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "less",
+    "sass",
+    "scss",
+    "pug",
+    "typescriptreact",
+  },
+  capabilities = caps,
+  cmd = { "emmet-language-server", "--stdio" },
+}
+
 vim.lsp.config("vtsls", vtsls_config)
 vim.lsp.config("vue_ls", vue_ls_config)
+vim.lsp.config("emmet_ls", emmet_config)
 
 -- Enable LSPs
-vim.lsp.enable({ "copilot", "lua_ls", "vtsls", "vue_ls", "cssls", "tailwindcss", "eslint", "biome", "html", "pylsp" })
+vim.lsp.enable({ "lua_ls", "emmet_ls", "vtsls", "vue_ls", "cssls", "tailwindcss", "eslint", "biome", "html", "pylsp" })
