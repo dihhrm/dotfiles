@@ -27,3 +27,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
    ]])
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "json", "markdown", "jsonc" },
+  callback = function()
+    vim.opt.conceallevel = 0
+  end,
+})
