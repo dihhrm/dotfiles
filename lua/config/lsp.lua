@@ -50,9 +50,14 @@ local emmet_config = {
     "scss",
     "pug",
     "typescriptreact",
+    "vue",
+    "typescript",
   },
   capabilities = caps,
   cmd = { "emmet-language-server", "--stdio" },
+  init_options = {
+    html = { options = { ["bem.enabled"] = true } },
+  },
 }
 
 vim.lsp.config("vtsls", vtsls_config)
@@ -60,4 +65,16 @@ vim.lsp.config("vue_ls", vue_ls_config)
 vim.lsp.config("emmet_ls", emmet_config)
 
 -- Enable LSPs
-vim.lsp.enable({ "lua_ls", "emmet_ls", "vtsls", "vue_ls", "cssls", "tailwindcss", "eslint", "biome", "html", "pylsp" })
+vim.lsp.enable({
+  "lua_ls",
+  "emmet_ls",
+  "vtsls",
+  "vue_ls",
+  "cssls",
+  "tailwindcss",
+  "vtsls",
+  "eslint",
+  "biome",
+  "html",
+  "pylsp",
+})
