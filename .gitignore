@@ -1,0 +1,4 @@
+# tmux plugins (managed by TPM)
+config/.config/tmux/plugins/
+
+config/.config/fish/fish_variables

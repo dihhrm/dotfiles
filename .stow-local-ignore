@@ -1,0 +1,52 @@
+# =========================
+# macOS
+# =========================
+\.DS_Store$
+\.AppleDouble$
+\.LSOverride$
+
+# =========================
+# Editor / backup files
+# =========================
+.*~$
+\..*\.swp$
+\..*\.swo$
+\..*\.swn$
+\.tmp$
+\.bak$
+\.orig$
+
+# =========================
+# Logs
+# =========================
+.*\.log$
+.*\.out$
+
+# =========================
+# Fish (estado dinâmico)
+# =========================
+^\.config/fish/fish_variables$
+
+# =========================
+# Neovim (estado/cache — se aparecerem no futuro)
+# =========================
+^\.config/nvim/undo/?$
+^\.config/nvim/swap/?$
+^\.config/nvim/backup/?$
+^\.config/nvim/session/?$
+
+# Lazy / packer / rocks (caso apareçam)
+^\.config/nvim/\.lazy/?$
+^\.config/nvim/\.rocks/?$
+^\.config/nvim/\.packer/?$
+
+# Spell compiled
+^\.config/nvim/spell/.*\.spl$
+^\.config/nvim/spell/.*\.sug$
+
+# =========================
+# Opcional — decida se quer versionar
+# =========================
+# ^\.config/nvim/\.luarc\.json$
+#
+^\.config/tmux/plugins/?$

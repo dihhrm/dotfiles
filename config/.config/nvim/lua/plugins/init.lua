@@ -1,0 +1,7 @@
+require("plugins.blink")
+require("plugins.treesitter")
+require("plugins.colorscheme")
+require("plugins.git")
+require("plugins.statusline")
+require("plugins.tabline")
+require("plugins.conform")

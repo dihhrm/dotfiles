@@ -1,0 +1,20 @@
+theme = XCode WWDC
+
+shell-integration = fish
+shell-integration-features = no-cursor
+
+background-opacity = 0.9
+background-blur-radius = 20
+background = #031219
+
+cursor-style = block
+cursor-style-blink = true
+
+#keybind = global:cmd+ctrl+shift+j=toggle_visibility
+
+macos-option-as-alt = false
+#keybind = alt+left=unbind
+#keybind = alt+right=unbind
+
+font-family = FiraCode
+font-size = 13
