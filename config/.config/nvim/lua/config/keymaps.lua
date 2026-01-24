@@ -84,3 +84,15 @@ map("n", "<leader>pd", function()
 		end
 	end)
 end, { desc = "Delete Plugin" })
+
+-- Fzf
+map("n", ";f", "<cmd>FzfLua files<CR>")
+map("n", ";g", "<cmd>FzfLua grep_project<CR>")
+map("n", ";gl", "<cmd>FzfLua grep_last<CR>")
+map("n", ";h", "<cmd>FzfLua help_tags<CR>")
+
+-- oil
+map("n", "<leader>o", "<cmd>Oil<CR>")
+map("n", "<leader>oc", function()
+	require("oil").open(vim.fn.getcwd())
+end)
