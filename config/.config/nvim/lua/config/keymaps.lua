@@ -96,3 +96,11 @@ map("n", "<leader>o", "<cmd>Oil<CR>")
 map("n", "<leader>oc", function()
 	require("oil").open(vim.fn.getcwd())
 end)
+
+-- codecompanionA
+map({ "n", "v" }, "<C-c>c", "<cmd>CodeCompanionActions<cr>", opts)
+map({ "n", "v" }, "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>", opts)
+map("v", "ga", "<cmd>CodeCompanionChat Add<cr>", opts)
+
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])

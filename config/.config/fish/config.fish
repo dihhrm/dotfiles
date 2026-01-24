@@ -14,6 +14,21 @@ command -qv nvim && alias n nvim
 
 set -gx EDITOR nvim
 
+function fzf --wraps=fzf --description="Use fzf-tmux if in tmux session"
+
+if set --query TMUX        # tmux: NÃO usar become
+        command fzf-tmux \
+          --bind 'enter:execute(nvim {} </dev/tty >/dev/tty 2>&1)+abort' \
+          $argv
+    else
+        # terminal normal: pode usar become
+        command fzf \
+          --bind 'enter:become(nvim {})' \
+          $argv
+    end
+  set -l opts "--bind=enter:become(nvim {})"
+end
+
 # NVM load
 load_nvm > /dev/stderr
 
