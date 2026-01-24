@@ -6,24 +6,24 @@ vim.pack.add({
 })
 
 -- Lazy load on first insert entry
--- vim.api.nvim_create_autocmd("InsertEnter", {
--- 	pattern = "*",
--- 	group = vim.api.nvim_create_augroup("BlinkCmpLazyLoad", { clear = true }),
--- 	once = true,
--- 	callback = function()
--- 		require("blink.cmp").setup({
--- 			keymap = { preset = "enter" },
--- 			appearance = {
--- 				nerd_font_variant = "mono",
--- 				use_nvim_cmp_as_default = true,
--- 			},
--- 			completion = {
--- 				documentation = { auto_show = false },
--- 			},
--- 			sources = {
--- 				default = { "lsp", "path", "snippets", "buffer" },
--- 			},
--- 			fuzzy = { implementation = "prefer_rust_with_warning" },
--- 		})
--- 	end,
--- })
+vim.api.nvim_create_autocmd("InsertEnter", {
+	pattern = "*",
+	group = vim.api.nvim_create_augroup("BlinkCmpLazyLoad", { clear = true }),
+	once = true,
+	callback = function()
+		require("blink.cmp").setup({
+			keymap = { preset = "enter" },
+			appearance = {
+				nerd_font_variant = "mono",
+				use_nvim_cmp_as_default = true,
+			},
+			completion = {
+				documentation = { auto_show = false },
+			},
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer" },
+			},
+			fuzzy = { implementation = "prefer_rust_with_warning" },
+		})
+	end,
+})

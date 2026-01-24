@@ -53,18 +53,18 @@ map("n", "<leader>fo", ":lua vim.lsp.buf.format()<CR>", opts) -- Format the curr
 
 -- quickfix list
 map("n", "<leader>fi", function()
-  local success, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
-  if not success and err then
-    vim.notify(err, vim.log.levels.ERROR)
-  end
+	local success, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
+	if not success and err then
+		vim.notify(err, vim.log.levels.ERROR)
+	end
 end, { desc = "Quickfix List" })
 
 -- vim.pack keymaps
 map("n", "<leader>pu", "<cmd>lua vim.pack.update()<CR>")
 map("n", "<leader>pd", function()
-  vim.ui.input({ prompt = "Plugin name to delete: " }, function(input)
-    if input and input ~= "" then
-      pcall(vim.pack.del, { input })
-    end
-  end)
+	vim.ui.input({ prompt = "Plugin name to delete: " }, function(input)
+		if input and input ~= "" then
+			pcall(vim.pack.del, { input })
+		end
+	end)
 end, { desc = "Delete Plugin" })

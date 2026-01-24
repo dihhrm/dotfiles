@@ -1,5 +1,15 @@
 local completion = vim.g.completion_mode or "blink" -- native is an option
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+do
+	local ok, blink = pcall(require, "blink.cmp")
+	if ok then
+		capabilities = blink.get_lsp_capabilities(capabilities)
+	end
+end
+
+vim.lsp.config("*", { capabilities = capabilities })
+
 local default_keymaps = {
 	{ keys = "<leader>ca", func = vim.lsp.buf.code_action, desc = "Code Actions" },
 	{ keys = "<leader>cr", func = vim.lsp.buf.rename, desc = "Code Rename" },
@@ -60,4 +70,5 @@ vim.lsp.enable({
 	"vue_ls",
 	"pyright",
 	"gopls",
+	"bashls",
 })
