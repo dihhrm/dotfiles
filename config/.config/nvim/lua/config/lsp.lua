@@ -71,4 +71,5 @@ vim.lsp.enable({
 	"pyright",
 	"gopls",
 	"bashls",
+	"fish_lsp",
 })
