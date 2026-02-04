@@ -28,8 +28,12 @@ require("gitsigns").setup({
 		end)
 
 		-- Actions
+		map("n", "<leader>hs", gs.stage_hunk)
 		map("n", "<leader>hp", gs.preview_hunk)
 		map("n", "<leader>hi", gs.preview_hunk_inline)
+		map("v", "<leader>hr", function()
+			gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+		end)
 
 		map("n", "<leader>hb", function()
 			gs.blame_line({ full = true })

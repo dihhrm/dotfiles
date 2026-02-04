@@ -6,6 +6,9 @@ local map = vim.keymap.set
 map("n", "<Tab>", ":bnext<CR>", { desc = "Next buffer" })
 map("n", "<S-Tab>", ":bprevious<CR>", { desc = "Previous buffer" })
 
+-- cd current dir
+map("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
+
 -- Delete a word backwards
 map("n", "dw", 'vb"_d')
 
@@ -87,6 +90,12 @@ end, { desc = "Delete Plugin" })
 
 -- Fzf
 map("n", ";f", "<cmd>FzfLua files<CR>")
+map("n", ";o", function()
+	require("fzf-lua").oldfiles({
+		cwd_only = true,
+		stat_file = true, -- verify files exist on disk
+	})
+end)
 map("n", ";g", "<cmd>FzfLua grep_project<CR>")
 map("n", ";gl", "<cmd>FzfLua grep_last<CR>")
 map("n", ";h", "<cmd>FzfLua help_tags<CR>")
@@ -97,10 +106,14 @@ map("n", "<leader>oc", function()
 	require("oil").open(vim.fn.getcwd())
 end)
 
--- codecompanionA
-map({ "n", "v" }, "<C-c>c", "<cmd>CodeCompanionActions<cr>", opts)
-map({ "n", "v" }, "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>", opts)
-map("v", "ga", "<cmd>CodeCompanionChat Add<cr>", opts)
+-- better paste
+map("v", "p", '"_dP"', opts)
 
--- Expand 'cc' into 'CodeCompanion' in the command line
-vim.cmd([[cab cc CodeCompanion]])
+-- Move live up or down
+-- moving
+map("n", "<A-Down>", ":m .+1<CR>", opts)
+map("n", "<A-Up>", ":m .-2<CR>", opts)
+map("i", "<A-Down>", "<Esc>:m .+1<CR>==gi", opts)
+map("i", "<A-Up>", "<Esc>:m .-2<CR>==gi", opts)
+map("v", "<A-Down>", ":m '>+1<CR>gv=gv", opts)
+map("v", "<A-Up>", ":m '<-2<CR>gv=gv", opts)
