@@ -1,6 +1,7 @@
 vim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/echasnovski/mini.nvim" },
+	{ src = "https://github.com/refractalize/oil-git-status.nvim" },
 })
 
 require("mini.icons").setup({})
@@ -10,6 +11,9 @@ require("oil").setup({
 		"icon",
 		"permissions",
 		"size",
+	},
+	win_options = {
+		signcolumn = "yes:2",
 	},
 	constrain_cursor = "name",
 	watch_for_changes = true,
@@ -35,3 +39,5 @@ require("oil").setup({
 		show_hidden = true,
 	},
 })
+
+require("oil-git-status").setup()
