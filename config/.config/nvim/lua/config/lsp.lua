@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			end
 
 			if client:supports_method("textDocument/documentColor") then
-				vim.lsp.document_color.enable(true, args.buf, {
+				vim.lsp.document_color.enable(true, { bufnr = buf }, {
 					style = "virtual",
 				})
 			end
@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 						km.mode or "n",
 						km.keys,
 						km.func,
-						{ desc = "LSP: " .. km.desc, buffer = buf, nowait = km.nowait }
+						{ buffer = buf, desc = "LSP: " .. km.desc, nowait = km.nowait }
 					)
 				end
 			end
@@ -73,3 +73,9 @@ vim.lsp.enable({
 	"bashls",
 	"fish_lsp",
 })
+
+-- Load Lsp on-demand, e.g: eslint is disable by default
+-- e.g: We could enable eslint by set vim.g.lsp_on_demands = {"eslint"}
+if vim.g.lsp_on_demands then
+	vim.lsp.enable(vim.g.lsp_on_demands)
+end
