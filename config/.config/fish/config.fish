@@ -31,7 +31,7 @@ function fzf --wraps=fzf --description="Use fzf-tmux if in tmux session"
 end
 
 # NVM load
-load_nvm >/dev/stderr
+#load_nvm >/dev/stderr
 
 # eza replace for ls
 if type -q eza
@@ -42,3 +42,14 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+# pnpm
+set -gx PNPM_HOME /Users/diego/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
