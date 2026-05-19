@@ -45,6 +45,12 @@ vim.opt.ruler = false -- disable default ruler
 vim.opt.virtualedit = "block" --  Allow cursor to move where there is no text in visual block mode
 vim.opt.winminwidth = 5
 
+-- ui2
+vim.opt.winborder = "rounded"
+-- completion popup menu border
+vim.opt.pumborder = "rounded"
+vim.opt.messagesopt = "hit-enter,history:500,progress:c"
+
 --file handling
 vim.opt.backup = false
 vim.opt.writebackup = false
