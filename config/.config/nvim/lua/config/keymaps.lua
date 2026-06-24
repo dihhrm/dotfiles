@@ -56,14 +56,6 @@ map("n", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select all" }
 map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
 map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })
 
--- Auto-close pairs (simple, no plugin needed)
-map("i", "`", "``<left>")
-map("i", '"', '""<left>')
-map("i", "(", "()<left>")
-map("i", "[", "[]<left>")
-map("i", "{", "{}<left>")
-map("i", "<", "<><left>")
-
 -- File operations
 map({ "i", "x", "n", "s" }, "<leader>w", "<cmd>w<CR><esc>", { desc = "Save file" })
 map("n", "<leader>q", ":quit<CR>", { desc = "Quit all" })
