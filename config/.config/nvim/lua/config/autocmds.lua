@@ -42,3 +42,16 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		vim.opt_local.filetype = "toml"
 	end,
 })
+
+-- Soft-wrap prose so long lines break at the window edge instead of scrolling
+vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("prose_wrap", { clear = true }),
+	pattern = { "markdown", "text", "gitcommit" },
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.linebreak = true
+		vim.opt_local.breakindent = true
+		vim.opt_local.breakindentopt = "shift:2"
+		vim.opt_local.showbreak = "↳ "
+	end,
+})
