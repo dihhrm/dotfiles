@@ -53,18 +53,6 @@ require("nvim-treesitter").install({
 	"zig",
 })
 
-vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-
--- vim.api.nvim_create_autocmd("FileType", {
--- 	callback = function(args)
--- 		if vim.b[args.buf].ts_started then
--- 			return
--- 		end
--- 		vim.b[args.buf].ts_started = true
--- 		pcall(vim.treesitter.start, args.buf)
--- 	end,
--- })
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "*" },
 	callback = function()
@@ -76,6 +64,12 @@ vim.api.nvim_create_autocmd("FileType", {
 			if not success then
 				return
 			end
+
+			-- Only set expr foldes when treesitter successfully started
+			vim.wo[0].foldmethod = "expr"
+			vim.wo[0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 		end
 	end,
 })
+
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"

@@ -59,7 +59,8 @@ local ts_server = vim.g.lsp_typescript_server or "vtsls"
 
 vim.lsp.enable({
 	ts_server,
-	"cssls",
+	"oxlint",
+	-- "cssls",
 	"biome",
 	"emmet_ls",
 	"tailwindcss",
@@ -72,6 +73,7 @@ vim.lsp.enable({
 	"gopls",
 	"bashls",
 	"fish_lsp",
+	"rust_analyzer",
 })
 
 -- Load Lsp on-demand, e.g: eslint is disable by default

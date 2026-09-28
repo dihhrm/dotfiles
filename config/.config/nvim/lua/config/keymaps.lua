@@ -89,8 +89,13 @@ map("n", ";o", function()
 	})
 end)
 map("n", ";g", "<cmd>FzfLua grep_project<CR>")
-map("n", ";gl", "<cmd>FzfLua grep_last<CR>")
 map("n", ";h", "<cmd>FzfLua help_tags<CR>")
+map("n", ";fd", function()
+	require("fzf-lua").files({
+		cwd = vim.fn.expand("%:p:h"),
+		prompt = "Buffer dir> ",
+	})
+end, { desc = "Fzf-lua files in buffer dir" })
 
 -- oil
 map("n", "<leader>o", "<cmd>Oil<CR>")
@@ -100,6 +105,12 @@ end)
 
 -- better paste
 map("v", "p", '"_dP"', opts)
+
+-- Marks --delete marks with command
+map("n", "dm", function()
+	local mark = vim.fn.getcharstr()
+	vim.cmd("delmarks " .. mark)
+end, { desc = "Delete mark" })
 
 -- Move live up or down
 -- moving
